@@ -1,5 +1,5 @@
 
-export device_id=3
+export device_id=1
 
 CUDA_VISIBLE_DEVICES=$device_id python run_pplm_discrim_train.py \
   --dataset generic \
