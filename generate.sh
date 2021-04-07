@@ -8,7 +8,7 @@ CUDA_VISIBLE_DEVICES=$device_id python run_pplm.py \
 --length 50 \
 --gamma 1.0 \
 --num_iterations 10 \
---num_samples 10 \
+--num_samples 1 \
 --stepsize 0.04 \
 --kl_scale 0.01 \
 --gm_scale 0.95 \
