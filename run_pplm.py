@@ -537,6 +537,7 @@ def generate_text_pplm(
         while len(context_t.shape) < 2:
             context_t = context_t.unsqueeze(0)
         output_so_far = context_t
+    context_len = output_so_far.size(1)
 
     # collect one hot vectors for bags of words
     one_hot_bows_vectors = build_bows_one_hot_vectors(bow_indices, tokenizer,
@@ -657,8 +658,9 @@ def generate_text_pplm(
         )
         if verbosity_level >= REGULAR:
             print(tokenizer.decode(output_so_far.tolist()[0]))
-
-    return output_so_far, unpert_discrim_loss, loss_in_time
+    
+    output = output_so_far[:, context_len:]
+    return output, unpert_discrim_loss, loss_in_time
 
 
 def set_generic_model_params(discrim_weights, discrim_meta):
@@ -932,7 +934,6 @@ def run_pplm_test(
     
     outs = []
     for i, line in enumerate(lines):
-        if i > 5: break
         raw_text = line.split('\t')[1]
         da = line.split('\t')[0]
         target = line.split('\t')[2]
