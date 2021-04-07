@@ -878,7 +878,7 @@ def run_pplm_test(
     np.random.seed(seed)
 
     # set verbosiry
-    verbosity_level = VERBOSITY_LEVELS.get(verbosity.lower(), REGULAR)
+    verbosity_level = VERBOSITY_LEVELS.get(verbosity.lower(), QUIET)
 
     # set the device
     device = "cuda" if torch.cuda.is_available() and not no_cuda else "cpu"
