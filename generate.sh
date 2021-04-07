@@ -12,5 +12,6 @@ CUDA_VISIBLE_DEVICES=$device_id python run_pplm.py \
 --stepsize 0.04 \
 --kl_scale 0.01 \
 --gm_scale 0.95 \
---sample
+--sample \
+--verbosity quiet
 
