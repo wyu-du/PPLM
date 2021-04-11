@@ -43,7 +43,7 @@ class Discriminator(torch.nn.Module):
             device='cpu'
     ):
         super(Discriminator, self).__init__()
-        if pretrained_model.startswith("gpt2"):
+        if pretrained_model.startswith("gpt2") or pretrained_model.startswith("microsoft/DialoGPT-medium"):
             self.tokenizer = GPT2Tokenizer.from_pretrained(pretrained_model)
             self.encoder = GPT2LMHeadModel.from_pretrained(pretrained_model)
             self.embed_size = self.encoder.transformer.config.hidden_size
