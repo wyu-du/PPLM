@@ -1014,7 +1014,7 @@ def run_pplm_test(
         outs.append(tmp)
         
     data = {'PPLM': outs}
-    with open('PPLM_outs_100.json', 'w') as json_file:
+    with open('PPLM_dialoGPT_outs_100.json', 'w') as json_file:
         json.dump(data, json_file, indent=2)
         
 
