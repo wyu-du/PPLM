@@ -1,5 +1,5 @@
 
-export device_id=0
+export device_id=1
 
 CUDA_VISIBLE_DEVICES=$device_id python run_pplm.py \
 --pretrained_model microsoft/DialoGPT-medium \
