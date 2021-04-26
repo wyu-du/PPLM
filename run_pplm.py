@@ -1015,7 +1015,7 @@ def run_pplm_test(
         outs.append(tmp)
         
     data = {'PPLM': outs}
-    with open('PPLM_DialoGPT_outs_full.json', 'w') as json_file:
+    with open('PPLM_DialoGPT_ft_outs_full.json', 'w') as json_file:
         json.dump(data, json_file, indent=2)
         
 def run_pplm_test_bow(
@@ -1286,5 +1286,5 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 #    run_pplm_example(**vars(args))
-#    run_pplm_test(**vars(args))
-    run_pplm_test_bow(**vars(args))
+    run_pplm_test(**vars(args))
+#    run_pplm_test_bow(**vars(args))
