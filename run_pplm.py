@@ -1087,7 +1087,7 @@ def run_pplm_test_bow(
     # figure out conditioning text
     with open('data/convai2_raw.json', 'r') as f:
         lines = json.load(f)['validation']
-    lines = lines[int(0.8*len(lines)):,:]
+    lines = lines[int(0.8*len(lines)):]
     
     outs = []
     for i, line in enumerate(lines):
