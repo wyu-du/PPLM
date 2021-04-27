@@ -1087,6 +1087,7 @@ def run_pplm_test_bow(
     # figure out conditioning text
     with open('data/convai2_raw.json', 'r') as f:
         lines = json.load(f)['validation']
+    lines = lines[int(0.8*len(lines)):,:]
     
     outs = []
     for i, line in enumerate(lines):
@@ -1193,7 +1194,7 @@ def run_pplm_test_bow(
         outs.append(tmp)
         
     data = {'PPLM': outs}
-    with open('PPLM_DialoGPT_ft_bow_outs_full.json', 'w') as json_file:
+    with open('PPLM_DialoGPT_ft_bow_outs_20.json', 'w') as json_file:
         json.dump(data, json_file, indent=2)
 
 
@@ -1286,5 +1287,5 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 #    run_pplm_example(**vars(args))
-    run_pplm_test(**vars(args))
-#    run_pplm_test_bow(**vars(args))
+#    run_pplm_test(**vars(args))
+    run_pplm_test_bow(**vars(args))
