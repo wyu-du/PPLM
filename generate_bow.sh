@@ -2,7 +2,7 @@
 export device_id=2
 
 CUDA_VISIBLE_DEVICES=$device_id python run_pplm.py \
---pretrained_model ~/baseline-dialogue/src/microsoft/DialoGPT-medium_convai2_raw_base_2021-04-26-10-21-06/checkpoint-47839 \
+--pretrained_model microsoft/DialoGPT-medium \
 -B 'profile' \
 --length 50 \
 --gamma 1.5 \

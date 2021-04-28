@@ -1194,7 +1194,7 @@ def run_pplm_test_bow(
         outs.append(tmp)
         
     data = {'PPLM': outs}
-    with open('PPLM_DialoGPT_ft_bow_outs_20.json', 'w') as json_file:
+    with open('PPLM_DialoGPT_base_bow_outs_20.json', 'w') as json_file:
         json.dump(data, json_file, indent=2)
 
 
