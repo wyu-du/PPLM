@@ -874,7 +874,8 @@ def run_pplm_test(
         seed=0,
         no_cuda=False,
         colorama=False,
-        verbosity='regular'
+        verbosity='regular',
+        train_num=100,
 ):
     # set Random seed
     torch.manual_seed(seed)
@@ -1015,7 +1016,7 @@ def run_pplm_test(
         outs.append(tmp)
         
     data = {'PPLM': outs}
-    with open('PPLM_DialoGPT_ft_outs_full.json', 'w') as json_file:
+    with open(f'PPLM_DA_{train_num}.json', 'w') as json_file:
         json.dump(data, json_file, indent=2)
         
 def run_pplm_test_bow(
@@ -1271,6 +1272,7 @@ if __name__ == '__main__':
         default=1,
         help="Length of future to optimize over",
     )
+    parser.add_argument("--train_num", type=int, default=100)
     parser.add_argument("--decay", action="store_true",
                         help="whether to decay or not")
     parser.add_argument("--gamma", type=float, default=1.5)
