@@ -1287,5 +1287,5 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 #    run_pplm_example(**vars(args))
-#    run_pplm_test(**vars(args))
-    run_pplm_test_bow(**vars(args))
+    run_pplm_test(**vars(args))
+#    run_pplm_test_bow(**vars(args))
