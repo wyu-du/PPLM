@@ -1020,7 +1020,14 @@ def run_pplm_test(
         
     b = datetime.now() 
     dec_time = (b-a).seconds
-    print('Decoding time:', str(dec_time))
+    
+    total_words = 0
+    for item in list(outs):
+        sent = item['perturbed_generation_0']
+        total_words += len(sent.split())
+    
+    avg_dec = dec_time/total_words
+    print('Avg decoding time:', str(avg_dec))
     
 #    data = {'PPLM': outs}
 #    with open(f'PPLM_DA_{train_num}.json', 'w') as json_file:
@@ -1206,7 +1213,14 @@ def run_pplm_test_bow(
         
     b = datetime.now() 
     dec_time = (b-a).seconds
-    print('Decoding time:', str(dec_time))
+    
+    total_words = 0
+    for item in list(outs):
+        sent = item['perturbed_generation_0']
+        total_words += len(sent.split())
+    
+    avg_dec = dec_time/total_words
+    print('Avg decoding time:', str(avg_dec))
     
 #    data = {'PPLM': outs}
 #    with open('PPLM_DialoGPT_base_bow_outs_20.json', 'w') as json_file:
