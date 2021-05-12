@@ -26,6 +26,7 @@ import argparse
 import json
 from operator import add
 from typing import List, Optional, Tuple, Union
+from datetime import datetime
 
 import numpy as np
 import torch
@@ -935,8 +936,10 @@ def run_pplm_test(
     print(class2idx)
     
     outs = []
+    a = datetime.now() 
+    print('Start time:', a)
     for i, line in enumerate(lines):
-#        if i > 100: break
+        if i == 10: break
         
         raw_text = line.split('\t')[1]
         da = line.split('\t')[0]
@@ -1015,9 +1018,13 @@ def run_pplm_test(
             )
         outs.append(tmp)
         
-    data = {'PPLM': outs}
-    with open(f'PPLM_DA_{train_num}.json', 'w') as json_file:
-        json.dump(data, json_file, indent=2)
+    b = datetime.now() 
+    dec_time = (b-a).seconds
+    print('Decoding time:', str(dec_time))
+    
+#    data = {'PPLM': outs}
+#    with open(f'PPLM_DA_{train_num}.json', 'w') as json_file:
+#        json.dump(data, json_file, indent=2)
         
 def run_pplm_test_bow(
         pretrained_model="gpt2-medium",
@@ -1091,8 +1098,10 @@ def run_pplm_test_bow(
     lines = lines[int(0.8*len(lines)):]
     
     outs = []
+    a = datetime.now()
+    print('Start time:', a)
     for i, line in enumerate(lines):
-#        if i > 100: break
+        if i == 10: break
         
         raw_text = ' '.join(line['cxt'])
         target = line['target']
@@ -1194,9 +1203,13 @@ def run_pplm_test_bow(
 
         outs.append(tmp)
         
-    data = {'PPLM': outs}
-    with open('PPLM_DialoGPT_base_bow_outs_20.json', 'w') as json_file:
-        json.dump(data, json_file, indent=2)
+    b = datetime.now() 
+    dec_time = (b-a).seconds
+    print('Decoding time:', str(dec_time))
+    
+#    data = {'PPLM': outs}
+#    with open('PPLM_DialoGPT_base_bow_outs_20.json', 'w') as json_file:
+#        json.dump(data, json_file, indent=2)
 
 
 if __name__ == '__main__':
