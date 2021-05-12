@@ -1052,7 +1052,8 @@ def run_pplm_test_bow(
         seed=0,
         no_cuda=False,
         colorama=False,
-        verbosity='regular'
+        verbosity='regular',
+        train_num=100,
 ):
     # set Random seed
     torch.manual_seed(seed)
@@ -1302,5 +1303,5 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 #    run_pplm_example(**vars(args))
-    run_pplm_test(**vars(args))
-#    run_pplm_test_bow(**vars(args))
+#    run_pplm_test(**vars(args))
+    run_pplm_test_bow(**vars(args))
